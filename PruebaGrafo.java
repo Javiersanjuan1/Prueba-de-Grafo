@@ -1,28 +1,23 @@
 import java.util.*;
 
-// Clase Grafo
 class Grafo {
     private Map<Integer, List<Integer>> adyacencias;
 
-    // Constructor
     public Grafo() {
         this.adyacencias = new HashMap<>();
     }
 
-    // Método para agregar un nodo y sus conexiones
     public void agregarArista(int origen, int destino) {
         adyacencias.putIfAbsent(origen, new ArrayList<>());
         adyacencias.get(origen).add(destino);
     }
 
-    // Método para mostrar el grafo
     public void mostrarGrafo() {
         for (Map.Entry<Integer, List<Integer>> entry : adyacencias.entrySet()) {
             System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
     }
 
-    // Método limpiaGrafo: elimina nodos con un valor específico
     public Grafo limpiaGrafo(int valor) {
         Grafo grafoLimpio = new Grafo();
 
@@ -43,7 +38,6 @@ class Grafo {
         return grafoLimpio;
     }
 
-    // Método principal para pruebas
     public static void main(String[] args) {
         Grafo grafo = new Grafo();
         grafo.agregarArista(1, 2);
